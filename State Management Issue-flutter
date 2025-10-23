@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+
+class BrokenCounter extends StatefulWidget {
+  @override
+  _BrokenCounterState createState() => _BrokenCounterState();
+}
+
+class _BrokenCounterState extends State<BrokenCounter> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    _counter++;
+  }
+
+  void _decrementCounter() {
+    _counter--;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Counter value:'),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _incrementCounter,
+                  child: Text('+'),
+                ),
+                SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: _decrementCounter,
+                  child: Text('-'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
